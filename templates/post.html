@@ -2,15 +2,22 @@
 
 <section class="content">
   <section class="post_form">
-    <form action="/" method="POST">
+    <form action="/tweetAdd/" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      <input type="text" class="name" name="name" placeholder="Name" required />
+      <input type="hidden" name="csrfmiddlewaretoken" value="A6BUNV8tkI3iiQYYIL23CviFfcHvjTvyuhNg9UwS51WAOKvhHVMchSkJcgnqp2RU">
+      <input type="text" class="name" name="name" placeholder="Your name" required />
       <br />
-      <textarea name="body" class="body" placeholder="Tell us anything" required></textarea>
+      <textarea name="body" class="body" placeholder="How's it going?" required></textarea>
       <br />
-      <input type="submit" class="submit" value="Post" />
+      <div class="bottom-area">
+        <div class="mb-0">
+          <input class="form-control form-control-sm" name="image" type="file">
+        </div>
+        <button class="btn" type="submit"> Tweet </button>
+      </div>
     </form>
   </section>
+  <div class="ditch"></div>
   <section class="posts">
     <ul>
       {% for post in posts %}
@@ -19,16 +26,18 @@
           <img class="menu_icon js-menu-icon" src="{% static 'img/more.png' %}"/>
           <div class="menu">
             <a href="/delete/{{ post.id }}/">Delete</a>
+            <a href="/edit/{{ post.body }}/">Edit</a>
           </div>
         </div>
-        <div class="logo">
-          <img src="{% static 'img/customer.png' %}" />
+        <div class="my_icon">
+          <img src="{% static 'img/user.jpg' %}" />
         </div>
         <div class="name_body">
           <div class="name">{{ post.name }}</div>
           <div class="datetime">{{ post.created_at }}</div>
           <p>{{ post.body }}</p>
           <a href="/delete/{{ post.id }}/"></a>
+          <a href="/edit/{{ post.body }}/"></a>
         </div>
       </li>
       {% endfor %}
