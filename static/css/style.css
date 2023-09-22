@@ -5,6 +5,80 @@ Common
 html,
 body {
   height: 100%;
+  font-family: sans-serif;
+}
+.btn {
+  background-color: rgb(29, 161, 242);
+  color:white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.btn-gray {
+  color:white;
+  background-color:whitesmoke;
+}
+
+.btn:hover {
+  color: white;
+}
+
+a {
+  font-size:  13px;
+  color: rgb(6, 134, 213);
+  text-decoration: none;
+}
+a.btn-gray {
+  color: white;
+}
+
+a:visited {
+  color: rgb(2, 148, 239);
+}
+
+a.btn-gray:visited {
+  color: white;
+}
+
+.container {
+  padding: 0%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  width: 100%;
+  max-width: 600px;
+  border-left: 1px solid rgb(235, 238, 240);
+  border-right: 1px solid rgb(235, 238, 240);
+
+}
+/*
+Main
+***************************/
+
+.main{
+  text-align: left;
+}
+
+.main .main-header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.main-header .logo {
+  width: 50px;
+  margin-right: 20px;
+}
+
+.main .main-header h1 {
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
 .content {
@@ -13,23 +87,45 @@ body {
   margin: 0 auto;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  padding: 20px;
 }
+
+.home .content .post_form {
+  width: calc(100%-80px);
+  flex-grow: 1;
+}
+
+.post_form .post_img {
+  padding:5px 15px 10px 10px;
+  width: 80px;
+}
+.post_form .post_img img {
+  width: 75%;
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+}
+
+
 
 /*
 Post
 **************************/
 
 .post_form {
-  padding: 20px 40px;
-  border-bottom: 1px solid #ccc;
-  margin: 2vw;
+  padding: 10px;
+  display: flex;
 }
 
+
 .post_form .name {
-  width: 70%;
+  width: 100%;
   margin-bottom: 10px;
+  margin: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  height: 10px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: rgb(214, 250, 245);
 }
 
 .post_form .submit {
@@ -39,15 +135,34 @@ Post
 }
 
 .post_form textarea {
-  width: 70%;
+  width: 100%;
+  height: 100px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: none;
+}
+.post_form .bottom-area {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+}
+
+.block {
+  height: 15px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color:rgb(235, 238, 240);
 }
 
 .posts ul {
-  padding: 0;
+  padding: 10px;
 }
-
+  
+  
 .posts li {
   display: flex;
   border-bottom: 1px solid #ccc;
@@ -83,8 +198,11 @@ Post
   flex-basis: 15%;
 }
 
+
 .posts li .logo img {
-  width: 60%;
+width: 50px;
+border-radius: 50%;
+border: 1px solid lightgrey;
 }
 
 .posts li .name_body {
@@ -93,10 +211,14 @@ Post
 
 .posts li .name_body .name {
   font-weight: bold;
+  font-size: 15px;
+  color: black;
 }
 
 .posts li .name_body .DateTime {
   color: gray;
+  padding-left: 10px;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 500px) {

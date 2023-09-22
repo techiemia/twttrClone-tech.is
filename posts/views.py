@@ -5,26 +5,28 @@ from .forms import PostForm
 
 
 def index(request):
-    if request.method =='POST':
+    if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
-            
-            return HttpResponseRedirect('/')
-        
-        else:
-        
-            return HttpResponseRedirect(form.errors.as_json)
-            
 
-    
+            return HttpResponseRedirect("/")
+
+        else:
+            return HttpResponseRedirect(form.errors.as_json)
+
     posts = Post.objects.all()[:20]
 
-    
-    return render(request, 'post.html',{'posts': posts})
+    return render(request, "post.html", {"posts": posts})
+
 
 def delete(request, post_id):
-   
-    post = Post.objects.get(id = post_id)
+    post = Post.objects.get(id=post_id)
     post.delete()
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect("/")
+
+
+def edit(request, post_body):
+    post = Post.objects.get(id=post_body)
+    post.edit()
+    return HttpResponseRedirect("/")

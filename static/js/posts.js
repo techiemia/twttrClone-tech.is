@@ -2,7 +2,8 @@
 ///////////////////JavaScript for Posts Page
 ////////////////////////////////////////////
 
-
+var console = {};
+console.log = function () {};
 
 $(function() {
     // Executed when js-menu-icon is clicked//
