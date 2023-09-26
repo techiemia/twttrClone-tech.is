@@ -23,10 +23,5 @@ def index(request):
 def delete(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect('/')
 
-
-def edit(request, post_body):
-    post = Post.objects.get(id=post_body)
-    post.edit()
-    return HttpResponseRedirect("/")

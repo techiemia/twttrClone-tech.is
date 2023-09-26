@@ -2,23 +2,15 @@
 
 <section class="content">
   <section class="post_form">
-    <div class="post_img">
-      <img src="/static/img/user_img.jpeg" class="">
-    </div>
-    <form action="/" method="POST" enctype="multipart/form-data">
+    <form action="/" method="POST">
       {% csrf_token %}
-      <input type="text" class="name" name="name" placeholder="What's your name?" required />
+      <input type="text" class="name" name="name" placeholder="Name" required />
       <br />
-      <textarea name="body" class="body" placeholder="What's on your mind?"required></textarea>
-      <div class="bottom-area">
-        <div class="mb-0">
-          <input class="form-control form-control-sm" name="image" type="file"/>
-        </div>
-        <button class="btn" style="text-align: center; text-decoration: none; vertical-align: middle;" type="submit">Tweet</button>
-      </div>
+      <textarea name="body" class="body" placeholder="Tell us anything" required></textarea>
+      <br />
+      <input type="submit" class="submit" value="Post" />
     </form>
   </section>
-  <div class="block"></div>
   <section class="posts">
     <ul>
       {% for post in posts %}
@@ -28,10 +20,10 @@
         </div>
           <div class="menu">
             <a href="/delete/{{ post.id }}/">Delete</a>
-            <a href="/edit/{{ post.body }}">Edit</a>
           </div>
+        </div>
         <div class="logo">
-          <img src="/static/img/user_img.jpeg" />
+          <img src="{% static 'img/customer.png' %}" />
         </div>
         <div class="name_body">
           <div class="name">{{ post.name }}</div>
