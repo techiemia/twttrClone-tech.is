@@ -25,3 +25,18 @@ def delete(request, post_id):
     post.delete()
     return HttpResponseRedirect('/')
 
+def edit(request, post_id):
+    if request.method == 'GET':
+        post = Post.objects.get(id=post_id)
+        return render(request, 'edit.html', {'posts': post})
+
+    if request.method == 'POST':
+        editPosts = Post.objects.get(id=post_id)
+        form = PostForm(request.POST, request.FILES, instance=editPosts)
+        
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect("/")
+        else:
+            return HttpResponse('Form is not valid')

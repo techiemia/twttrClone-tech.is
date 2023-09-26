@@ -318,7 +318,7 @@ Home
       margin-top: 10px;
   }
 }
->>>>>>> 38cd6e36542a3e773434198b02fa0c232a08cdb3
+
 
 
 /*
@@ -417,7 +417,8 @@ Post
 width: 50px;
 border-radius: 50%;
 border: 1px solid lightgrey;
-=======
+}
+
 .posts li .my_icon img {
   width: 60%;
 }
@@ -438,7 +439,7 @@ border: 1px solid lightgrey;
   font-size: 14px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px){
   .posts li .name_body .name {
     font-size: 20px;
   }
