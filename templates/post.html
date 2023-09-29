@@ -1,42 +1,58 @@
-{% extends "base.html"%} {% block content %}{% load static %}
+{% extends "base.html" %} {% block content %} {% load static %}
 
-<section class="content">
-  <section class="post_form">
-    <form action="/" method="POST">
-      {% csrf_token %}
-      <input type="text" class="name" name="name" placeholder="Name" required />
-      <br />
-      <textarea name="body" class="body" placeholder="Tell us anything" required></textarea>
-      <br />
-      <input type="submit" class="submit" value="Post" />
-    </form>
-  </section>
-  <section class="posts">
-    <ul>
-      {% for post in posts %}
-      <li>
-        <div class="menu_icon">
-          <img class="menu_icon js-menu-icon" src="{% static 'img/more.png' %}"/>
+<div class="container">
+      <div class="main">
+        <div class="main-header">
+          <img src="/static/img/flower.png" class="logo" />
+            <h1> Home </h1>
         </div>
-          <div class="menu">
-            <a href="/delete/{{ post.id }}/">Delete</a>
+        <section class="content">
+        <div class="post_form">
+          <div class="post_img">
+            <img src="/static/img/user_img.jpeg" class="">
+        </div>
+        <form action="/tweetAdd/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+          <input type="text" class="name" name="name" placeholder="Name" required />
+          <br />
+          <textarea name="body" class="body" placeholder="How's it going?" required></textarea>
+          <div class="bottom-area">
+            <div class="img-upload">
+              <input class="form-contorl form-contorl-sm" name="image" type="file">
+            </div>
+            <button type="submit" class="btn">Tweet</button>
           </div>
-        </div>
-        <div class="logo">
-          <img src="{% static 'img/user_img.jpeg' %}" />
-        </div>
-        <div class="name_body">
-          <div class="name">{{ post.name }}</div>
-          <div class="datetime">{{ post.created_at }}</div>
-          <p>{{ post.body }}</p>
-          <a href="/delete/{{ post.id }}/"></a>
-          <a href="/edit/{{ post.body }}/"></a>
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-  <script
+        </form>
+      </div>
+    <div class="block"></div>
+    <section class="posts">
+      <ul>
+        {% for post in posts %} {% load static %}
+        <li>
+          <div class="menu_icon">
+            <img class="menu_icon js-menu-icon" src="/static/img/more.png"/>
+            <div class="menu">
+              <a href="/delete/{{ post.id }}/">Delete</a> <br>
+              <a href="/edit/{{ post.id }}/">Edit Post</a>
+            </div>
+          </div>
+          <div class="logo">
+            <img src="{% static 'img/user_img.jpeg' %}" />
+          </div>
+          <div class="name_body">
+            <div class="name">{{ post.name }}</div>
+            <div class="datetime">{{ post.created_at }}</div>
+            <p>{{ post.body }}</p>
+            <a href="/delete/{{ post.id }}/"></a>
+            <a href="/edit/{{ post.id }}/"></a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</div>
+<script
     src="https://code.jquery.com/jquery-3.7.1.js"
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"

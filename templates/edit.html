@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+<div class="edit-cont">
+    <div class="main-edit">
+        <div class="edit-header">
+            <img src="{% static 'img/flower.png' %}" alt="">
+            <h1>Edit</h1>
+        </div>
+        <div class="edit-post">
+            <div class="user">
+                <img src="{% static 'img/user_img.jpeg' %}" alt="">
+            </div>
+            <div class="input-box">
+                <form action="/edit/{{posts.id}}/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" class="name" name="name" placeholder="Name" value="{{posts.name}}" required />
+                    <br />
+                    <textarea name="body" class="body" placeholder="How's it going?" required>{{posts.body}}</textarea>
+                    <div class="edit-bottom">
+                        <div class="mb-0">
+                            <input class="form-control form-control-sm" name="image" type="file">
+                        </div>
+                        <a href="/" class="cancel">Cancel</a>
+                        <button class="update" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="edit-block"></div>
+    </div>
+</div>
+{% endblock %}
