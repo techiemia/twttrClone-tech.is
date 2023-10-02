@@ -161,14 +161,14 @@ Post
   width: 20px;
   position: absolute;
   /* top: 40px; */
-  right: 36vw;
+  right: 14vw;
 }
 
 .posts li .menu {
   display: none;
   position: absolute;
   /* top: 68px; */
-  right: 36vw;
+  right: 14vw;
   border: 1px solid #ccc;
   background-color: whitesmoke;
   padding-right: 10px 15px;
@@ -363,4 +363,28 @@ a.cancel {
   justify-content: space-between;
   border-top:1px solid #ccc;
   padding-top: 8px;
+}
+
+
+
+
+.like {
+  padding-top: 5px;
+}
+
+.like p{
+  margin-left:36px;
+  margin-bottom: -26px;
+}
+#red-heart{
+  display:none;
+}
+
+
+
+.post-image {
+  border-radius: 3%;
+  position: relative;
+  left:-5vw;
+  width:400px;
 }

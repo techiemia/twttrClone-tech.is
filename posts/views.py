@@ -1,12 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
 
 
 def index(request):
+    form = PostForm(request.POST, request.FILES)
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
 
@@ -40,3 +41,10 @@ def edit(request, post_id):
             return HttpResponseRedirect("/")
         else:
             return HttpResponse('Form is not valid')
+
+def like(request, post_id):
+    post = Post.objects.get(id=post_id)
+    new_value = post.likes +1
+    post.likes = new_value
+    post.save()
+    return HttpResponseRedirect('/')

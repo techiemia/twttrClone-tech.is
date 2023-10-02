@@ -11,7 +11,7 @@
           <div class="post_img">
             <img src="/static/img/user_img.jpeg" class="">
         </div>
-        <form action="/tweetAdd/" method="POST" enctype="multipart/form-data">
+        <form action="/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
           <input type="text" class="name" name="name" placeholder="Name" required />
           <br />
@@ -40,11 +40,18 @@
             <img src="{% static 'img/user_img.jpeg' %}" />
           </div>
           <div class="name_body">
-            <div class="name">{{ post.name }}</div>
+            <div class="name">{{post.name}}</div>
             <div class="datetime">{{ post.created_at }}</div>
             <p>{{ post.body }}</p>
-            <a href="/delete/{{ post.id }}/"></a>
-            <a href="/edit/{{ post.id }}/"></a>
+            {% if post.image.url %}
+            <img class="post-image" src="{{ post.image.url }}" width="100%" alt="">
+            {% endif %}
+              <div class="like">
+                <p>{{post.likes}}</p>
+                <a href="/like/{{post.id}}">
+                  <img src="{% static 'img/heart.png' %}" alt="" style="width:30px;" id="grey-heart">
+                </a>
+              </div>
           </div>
         </li>
         {% endfor %}
@@ -58,6 +65,7 @@
     crossorigin="anonymous"
   ></script>
   <script src="{% static 'js/posts.js' %}"></script>
+  <script src="{% static 'js/likes.js' %}"></script>
 </section>
 
 {% endblock %}
