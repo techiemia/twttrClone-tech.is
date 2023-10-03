@@ -161,14 +161,14 @@ Post
   width: 20px;
   position: absolute;
   /* top: 40px; */
-  right: 23vw;
+  right: 36vw;
 }
 
 .posts li .menu {
   display: none;
   position: absolute;
   /* top: 68px; */
-  right: 35vw;
+  right: 36vw;
   border: 1px solid #ccc;
   background-color: whitesmoke;
   padding-right: 10px 15px;
