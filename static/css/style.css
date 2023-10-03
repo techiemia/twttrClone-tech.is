@@ -43,8 +43,8 @@ a:visited {
 .main {
   width: 100%;
   max-width: 600px;
-  border-left: 1px solid rgb(235, 238, 240);
-  border-right: 1px solid rgb(235, 238, 240);
+  border-left: 1px solid rgb(183, 187, 189);
+  border-right: 1px solid rgb(183, 187, 189);
 }
 /*
 Main
@@ -59,7 +59,7 @@ Main
   justify-content: left;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(183, 187, 189);
 }
 
 .main-header .logo {
@@ -76,8 +76,8 @@ Main
 
 .content {
   margin: 0 auto;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid rgb(183, 187, 189);
+  border-right: 1px solid rgb(183, 187, 189);
 }
 
 .home .content .post_form {
@@ -93,7 +93,7 @@ Main
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  border: 1px solid lightgrey;
+  border: 1px solid rgb(183, 187, 189);
 }
 
 /*
@@ -102,7 +102,7 @@ Post
 
 .post_form {
   padding: 20px 40px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(183, 187, 189);
   margin: 10px;
   padding: 10px;
   display: flex;
@@ -113,7 +113,7 @@ Post
   margin-bottom: 10px;
   margin: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(183, 187, 189);
   height: 10px;
   border-radius: 5px;
   background-color: rgb(214, 250, 245);
@@ -161,7 +161,7 @@ Post
   width: 20px;
   position: absolute;
   /* top: 40px; */
-  right: 35vw;
+  right: 23vw;
 }
 
 .posts li .menu {
@@ -234,8 +234,8 @@ Post
   text-align: left;
   max-width: 600px;
   width:100%;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid rgb(183, 187, 189);
+  border-right: 1px solid rgb(183, 187, 189);
 }
 
 .main-edit .edit-header {
@@ -287,7 +287,7 @@ Post
   width: 50px;
   height:50px;
   border-radius: 50%;
-  border: 1px solid lightgrey;
+  border: 1px solid rgb(183, 187, 189);
   vertical-align: middle;
 }
 
@@ -383,8 +383,11 @@ a.cancel {
 
 
 .post-image {
-  border-radius: 3%;
-  position: relative;
-  left:-5vw;
-  width:400px;
+  border-radius: 15px;
+  width:100%;
+  height:300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  border: 1px solid rgb(183, 187, 189);
 }
